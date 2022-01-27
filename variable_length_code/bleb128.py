@@ -12,7 +12,7 @@ def bytes2uint(bts):
     return num
 
 assert list(uint2bytes(624485)) == [0xE5, 0x8D, 0x25]
-assert bytes2uint([1, 2, 3]) == 65921
+assert bytes2uint(uint2bytes(9**9 + 42)) == 9**9 + 42
 
 def int2bytes(n):
     result = []

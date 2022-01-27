@@ -22,8 +22,7 @@ def bytes2int(bts):
     num = 0
     for byte in reversed(bts):
         num = num * 128 + (byte & 127)
-    M = 2**(7 * len(bts) - 1)
-    return (M + num) % (2*M) - M
+    return num - 2**(7 * len(bts)) if bts[-1] & 64 else num
 
 assert list(uint2bytes(624485)) == [0xE5, 0x8E, 0x26]
 assert bytes2uint([0xCD, 0xE1, 0xB2, 0x02]) == 5025997
